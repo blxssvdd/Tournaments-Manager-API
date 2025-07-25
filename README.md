@@ -55,8 +55,3 @@ The project was created to study:
    ```
    pip install -r requirements.txt
    ```
-
-2. Install requirements:
-   ```
-   pip install -r requirements.txt
-   ```
