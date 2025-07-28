@@ -1,6 +1,7 @@
 from typing import List, Optional
 from datetime import date
 from enum import Enum
+from unittest import result
 
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -58,6 +59,9 @@ async def add_vote(user_id: str, tournament_id: str, team_id: str, vote: Vote, d
 
 async def check_vote_result(user_id: str, tournament_id: str, team_id: str, db: AsyncSession) -> Optional[bool]:
     user_team_assoc: Optional[UserTeamAssoc] = await db.scalar(select(UserTeamAssoc).filter_by(user_id=user_id, team_id=team_id, role=Role.teamlead))
+    if not user_team_assoc:
+        return
+        
     result: Optional[Result] = await db.scalar(select(Result).filter_by(team=user_team_assoc.team, tournament_id=tournament_id))
     if not user_team_assoc or not result:
         return

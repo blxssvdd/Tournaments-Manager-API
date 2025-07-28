@@ -74,5 +74,3 @@ async def add_user_to_team(
     result = await db_actions.add_user_to_team(team_id=team_id, user_id=user_id, db=db)
     if not result:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN)
-
-#Додані деталі

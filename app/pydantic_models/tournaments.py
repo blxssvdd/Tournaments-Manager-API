@@ -22,4 +22,4 @@ class ResultModel(BaseModel):
     team_name: str = Field(..., example="FC Example")
     tournament_name: str = Field(..., example="Champions League")
     result: float = Field(..., ge=0, example=12.5, description="Результат команди (наприклад, очки)")
-    vote_result: int = Field(..., ge=0, example=42, description="Кількість голосів за команду")
+    vote_result: int = Field(..., example=42, description="Кількість голосів за команду")

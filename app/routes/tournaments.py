@@ -104,7 +104,9 @@ async def get_results(
     for result in results:
         results_model.append(ResultModel(
             team_name=result.team.name,
-            tournament_name=result.tournament.name
+            tournament_name=result.tournament.name,
+            result=result.result,
+            vote_result=result.vote_result
         ))
     return results_model
 
